@@ -7,11 +7,18 @@ const Toolbar = (props) => {
 
   return (
     <ul className="toolbar">
-      {filters.map(filter => <li className="toolbar__item">{filter}</li>)}
+      {filters.map(filter => {
+        return <li
+          key={filter}
+          className={'toolbar__item ' + (filter === selected && 'toolbar__item_active')}
+          onClick={event => onSelectFilter(filter)}>{filter}</li>
+      })}
     </ul>
   );
 };
 
-Toolbar.propTypes = {};
+Toolbar.propTypes = {
+  filters: PropTypes.array.isRequired
+};
 
 export default Toolbar;
