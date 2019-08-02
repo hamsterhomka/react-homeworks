@@ -7,8 +7,7 @@ const ProjectList = (props) => {
 
   return (
     <div className={'project-list'}>
-      {/* Тут не знаю какой key сделать чтобы он был уникальным, т. к. img повторяется, а id не дано */}
-      {projects.map(project => <img className={'project-list__img'} src={project.img} alt=""/>)}
+      {projects.map(project => <img key={project._id} className={'project-list__img'} src={project.img} alt=""/>)}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
 import Toolbar from '../Toolbar/Toolbar';
 import ProjectList from '../ProjectList/ProjectList';
+import shortid from 'shortid';
 
 const filters = ["All", "Websites", "Flayers", "Business Cards"];
 const projects = [{
@@ -57,16 +57,14 @@ const projects = [{
   category: "Flayers"
 }];
 
+projects.forEach(project => {
+  project._id = shortid.generate()
+});
+
 const Portfolio = (props) => {
   const [selectedFilter, setSelectedFilter] = useState('All');
 
-  const filteredProjects = projects.filter(project => {
-    if(selectedFilter === 'All') {
-      return true;
-    } else {
-      return project.category === selectedFilter;
-    }
-  });
+  const filteredProjects = projects.filter(project => selectedFilter === 'All' || project.category === selectedFilter);
 
   return (
     <div className="portfolio">

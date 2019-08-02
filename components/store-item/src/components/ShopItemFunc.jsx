@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import {itemType} from "../types";
 
 const ShopItemFunc = (props) => {
   const {item} = props;
@@ -25,7 +25,7 @@ const ShopItemFunc = (props) => {
 };
 
 ShopItemFunc.propTypes = {
-  item: PropTypes.object
+  item: itemType
 };
 
 export default ShopItemFunc

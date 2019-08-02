@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import ShopItemFunc from "./ShopItemFunc";
+import {itemType} from "../types";
 
 class ShopItemClass extends React.Component {
 
@@ -28,8 +29,8 @@ class ShopItemClass extends React.Component {
 
 }
 
-ShopItemClass.propTypes = {
-  item: PropTypes.object
+ShopItemFunc.propTypes = {
+  item: itemType
 };
 
 export default ShopItemClass;

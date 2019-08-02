@@ -102,33 +102,35 @@ const Calendar = (props) => {
       </div>
       <table className="ui-datepicker-calendar">
         <colgroup>
-          <col key={'col1'}/>
-          <col key={'col2'}/>
-          <col key={'col3'}/>
-          <col key={'col4'}/>
-          <col key={'col5'}/>
-          <col key={'col6'} className="ui-datepicker-week-end"/>
-          <col key={'col7'} className="ui-datepicker-week-end"/>
+          <col/>
+          <col/>
+          <col/>
+          <col/>
+          <col/>
+          <col className="ui-datepicker-week-end"/>
+          <col className="ui-datepicker-week-end"/>
         </colgroup>
         <thead>
         <tr>
-          <th key={'Понедельник'} scope="col" title="Понедельник">Пн</th>
-          <th key={'Вторник'} scope="col" title="Вторник">Вт</th>
-          <th key={'Среда'} scope="col" title="Среда">Ср</th>
-          <th key={'Четверг'} scope="col" title="Четверг">Чт</th>
-          <th key={'Пятница'} scope="col" title="Пятница">Пт</th>
-          <th key={'Суббота'} scope="col" title="Суббота">Сб</th>
-          <th key={'Воскресенье'} scope="col" title="Воскресенье">Вс</th>
+          <th scope="col" title="Понедельник">Пн</th>
+          <th scope="col" title="Вторник">Вт</th>
+          <th scope="col" title="Среда">Ср</th>
+          <th scope="col" title="Четверг">Чт</th>
+          <th scope="col" title="Пятница">Пт</th>
+          <th scope="col" title="Суббота">Сб</th>
+          <th scope="col" title="Воскресенье">Вс</th>
         </tr>
         </thead>
         <tbody>
-        {weeksArr.map((daysArrInWeek,i) => {
-          return (<tr key={'tr' + i}>
-            {daysArrInWeek.map(day => {
-              return <td key={day.date.getTime()} className={getStatusClass(day.status)}>{day.date.getDate()}</td>
-            })}
-          </tr>)
-        })}
+        {weeksArr.map((daysArrInWeek,i) => (
+          <tr key={i}>
+            {daysArrInWeek.map(day => (
+              <td key={day.date.getTime()} className={getStatusClass(day.status)}>
+                {day.date.getDate()}
+              </td>
+            ))}
+          </tr>
+        ))}
         </tbody>
       </table>
     </div>

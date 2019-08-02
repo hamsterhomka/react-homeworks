@@ -8,7 +8,7 @@ const CardsView = (props) => {
 
   return (
     <div className={'card-view'}>
-      {cards.map(card => <ShopCard key={card.name + ' ' + card.color} product={card}/>)}
+      {cards.map(card => <ShopCard key={card.name + card.color} product={card}/>)}
     </div>
   );
 };

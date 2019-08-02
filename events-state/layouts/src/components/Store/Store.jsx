@@ -7,16 +7,19 @@ import './Store.css';
 
 const Store = (props) => {
   const {products} = props;
-  const [viewType, setViewType] = useState('view_list');
+
+  const VIEW_LIST = 'view_list';
+  const VIEW_MODULE= 'view_module';
+  const [viewType, setViewType] = useState(VIEW_LIST);
 
   return (
-    <div className={'store'}>
-      <div className={'store__view-icon-box'}>
+    <div className="store">
+      <div className="store__view-icon-box">
         <IconSwitch icon={viewType} onSwitch={() => {
-          setViewType(prevType => prevType === 'view_list' ? 'view_module' : 'view_list')
+          setViewType(prevType => prevType === VIEW_LIST ? VIEW_MODULE : VIEW_LIST)
         }}/>
       </div>
-      {viewType === 'view_list' ? <ListView items={products}/> : <CardsView cards={products}/>}
+      {viewType === VIEW_LIST ? <ListView items={products}/> : <CardsView cards={products}/>}
     </div>
   );
 };

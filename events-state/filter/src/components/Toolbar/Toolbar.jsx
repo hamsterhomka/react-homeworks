@@ -10,7 +10,7 @@ const Toolbar = (props) => {
       {filters.map(filter => {
         return <li
           key={filter}
-          className={'toolbar__item ' + (filter === selected && 'toolbar__item_active')}
+          className={`toolbar__item ${filter === selected && 'toolbar__item_active'}`}
           onClick={event => onSelectFilter(filter)}>{filter}</li>
       })}
     </ul>

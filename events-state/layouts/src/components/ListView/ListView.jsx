@@ -7,7 +7,7 @@ const ListView = (props) => {
 
   return (
     <div className={'list-view'}>
-      {items.map(item => <ShopItem key={item.name + ' ' + item.color} product={item}/>)}
+      {items.map(item => <ShopItem key={item.name + item.color} product={item}/>)}
     </div>
   );
 };
