@@ -42,7 +42,7 @@ const WalksRegisterer = (props) => {
     } else {//если создаем новую запись
       const existingDateWalk = walks.find(walk => walk.date === walkAddForm.date);
       if(existingDateWalk) {
-        setWalks(prevWalks => [...prevWalks].map(walk => {
+        setWalks(prevWalks => prevWalks.map(walk => {
           if(walk.id === existingDateWalk.id) {
             walk = new WalkModel(walk.id, walk.date, walk.distance + Number(walkAddForm.distance));
           }
@@ -53,6 +53,11 @@ const WalksRegisterer = (props) => {
       }
     }
 
+    setWalks(prevWalks => [...prevWalks].sort((walk, walkNext) => {
+      const date = new Date(walk.date);
+      const dateNext = new Date(walkNext.date);
+      return date - dateNext;
+    }));
     setWalkAddForm(initialWalkAddFormState);
   }
 
