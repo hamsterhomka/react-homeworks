@@ -15,12 +15,6 @@ const WalksRegisterer = (props) => {
   const [walks, setWalks] = useState([]),
     [walkAddForm, setWalkAddForm] = useState(initialWalkAddFormState);
 
-  // walks.sort((walk,walkNext) => {
-  //   const date = new Date(walk.date);
-  //   const dateNext = new Date(walkNext.date);
-  //   return date - dateNext;
-  // });
-
   function handleAddFormChange({target}) {
     setWalkAddForm(prevForm => ({...prevForm, [target.name]: target.value}));
   }
@@ -58,7 +52,7 @@ const WalksRegisterer = (props) => {
         setWalks(prevWalks => [...prevWalks, new WalkModel(shortid.generate(), walkAddForm.date, walkAddForm.distance)]);
       }
     }
-    
+
     setWalkAddForm(initialWalkAddFormState);
   }
 
