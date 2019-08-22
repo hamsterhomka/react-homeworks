@@ -15,11 +15,11 @@ const WalksRegisterer = (props) => {
   const [walks, setWalks] = useState([]),
     [walkAddForm, setWalkAddForm] = useState(initialWalkAddFormState);
 
-  walks.sort((walk,walkNext) => {
-    const date = new Date(walk.date);
-    const dateNext = new Date(walkNext.date);
-    return date - dateNext;
-  });
+  // walks.sort((walk,walkNext) => {
+  //   const date = new Date(walk.date);
+  //   const dateNext = new Date(walkNext.date);
+  //   return date - dateNext;
+  // });
 
   function handleAddFormChange({target}) {
     setWalkAddForm(prevForm => ({...prevForm, [target.name]: target.value}));
@@ -35,7 +35,7 @@ const WalksRegisterer = (props) => {
 
   function walkEditHandler(id) {
     const walk = walks.find(walk => walk.id === id);
-    setWalkAddForm({editId:id, date: walk.date, distance: walk.distance});
+    setWalkAddForm({editId: id, date: walk.date, distance: walk.distance});
   }
 
   function walkAddHandler(evt) {
@@ -48,12 +48,22 @@ const WalksRegisterer = (props) => {
     } else {//если создаем новую запись
       const existingDateWalk = walks.find(walk => walk.date === walkAddForm.date);
       if(existingDateWalk) {
-        existingDateWalk.distance += Number(walkAddForm.distance);
+        setWalks(prevWalks => [...prevWalks].map(walk => {
+          if(walk.id === existingDateWalk.id) {
+            walk = new WalkModel(walk.id, walk.date, walk.distance + Number(walkAddForm.distance));
+          }
+          return walk;
+        }));
       } else {
-        setWalks(prevWalks => [...prevWalks,new WalkModel(shortid.generate(), walkAddForm.date, walkAddForm.distance)]);
+        setWalks(prevWalks => [...prevWalks, new WalkModel(shortid.generate(), walkAddForm.date, walkAddForm.distance)]);
       }
     }
 
+    // setWalks(prevWalks => [...prevWalks].sort((walk, walkNext) => {
+    //   const date = new Date(walk.date);
+    //   const dateNext = new Date(walkNext.date);
+    //   return date - dateNext;
+    // }));
     setWalkAddForm(initialWalkAddFormState);
   }
 
