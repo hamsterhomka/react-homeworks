@@ -58,12 +58,7 @@ const WalksRegisterer = (props) => {
         setWalks(prevWalks => [...prevWalks, new WalkModel(shortid.generate(), walkAddForm.date, walkAddForm.distance)]);
       }
     }
-
-    // setWalks(prevWalks => [...prevWalks].sort((walk, walkNext) => {
-    //   const date = new Date(walk.date);
-    //   const dateNext = new Date(walkNext.date);
-    //   return date - dateNext;
-    // }));
+    
     setWalkAddForm(initialWalkAddFormState);
   }
 
