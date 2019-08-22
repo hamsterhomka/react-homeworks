@@ -1,7 +1,7 @@
 import React from 'react';
 
 function sortList(list) {
-  list.sort((day, nextDay) => {
+  return [...list].sort((day, nextDay) => {
     const dayDate = new Date(day.date);
     const nextDayDate = new Date(nextDay.date);
     if(dayDate < nextDayDate) {
@@ -15,14 +15,16 @@ function sortList(list) {
 }
 
 export function withSort(Component,sortFunction) {
-  return class extends React.Component {
+  class WithSort extends React.Component {
     render() {
       const {list} = this.props;
 
-      sortList(list);
-      const newList = sortFunction ? sortFunction(list) : list;
+      const sortedList = sortList(list);
+      const newList = sortFunction ? sortFunction(sortedList) : sortedList;
 
       return <Component {...this.props} list={newList}/>
     }
   }
+  WithSort.displayName = `withSort(${Component.displayName || Component.name}`;
+  return WithSort;
 }

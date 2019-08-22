@@ -16,19 +16,21 @@ function Details({info}) {
 
   return (
     <div className="details uk-card uk-card-default">
-      <div className="uk-card-media-top details__top">
-        {isLoading && <div className="details__spinner" data-uk-spinner/>}
-        {!isLoading && <img src={user.avatar} alt=""/>}
-      </div>
-      <div className="uk-card-body">
-        <h3 className="uk-card-title">{!isLoading && user.name}{isLoading && '\xa0'}</h3>
+      {isLoading ? <div className="details__spinner" data-uk-spinner/>
+        : <>
+          <div className="uk-card-media-top details__top">
+            <img src={user.avatar} alt=""/>
+          </div>
+          <div className="uk-card-body">
+            <h3 className="uk-card-title">{user.name}</h3>
 
-        <ul className="list uk-list uk-list-divider">
-          <li>city: {!isLoading && user.details.city}</li>
-          <li>company: {!isLoading && user.details.company}</li>
-          <li>position: {!isLoading && user.details.position}</li>
-        </ul>
-      </div>
+            <ul className="list uk-list uk-list-divider">
+              <li>city: {user.details.city}</li>
+              <li>company: {user.details.company}</li>
+              <li>position: {user.details.position}</li>
+            </ul>
+          </div>
+        </>}
     </div>
   );
 }

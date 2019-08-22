@@ -16,8 +16,8 @@ function Watches(props) {
     setWatchAddForm(prevForm => ({...prevForm, [target.name]: target.value}));
   }
 
-  function handleAddWatch(evt) {
-    evt.preventDefault();
+  function handleAddWatch(event) {
+    event.preventDefault();
     if(watchAddForm.name && watchAddForm.timezone) {
       setWatchesList(prevWatchesList => ([
         ...prevWatchesList,

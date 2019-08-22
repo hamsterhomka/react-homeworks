@@ -2,7 +2,7 @@ import React from 'react';
 import MonthTable from './MonthTable';
 import SortTable from './SortTable';
 import YearTable from './YearTable';
-import {withSort} from '../hoc';
+import {withSort} from '../hoc/withSort';
 
 const SortedMonthTable = withSort(MonthTable, monthSortFunction);
 const SortedYearTable = withSort(YearTable, yearSortFunction);

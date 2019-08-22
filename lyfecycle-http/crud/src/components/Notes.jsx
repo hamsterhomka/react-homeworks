@@ -4,16 +4,17 @@ import PropTypes from 'prop-types';
 import Note from './Note';
 import NotesButton from './NotesButton';
 
+const initFormState = {
+  content: ''
+};
+
 class Notes extends React.Component {
 
   constructor(props) {
     super(props);
-    this.initFormState = {
-      content: ''
-    };
     this.state = {
       notes: [],
-      form: this.initFormState
+      form: initFormState
     };
   }
 
@@ -55,7 +56,7 @@ class Notes extends React.Component {
 
     this.addNote(note)
       .then(this.loadNotes)
-      .then(() => this.setState({form: this.initFormState}))
+      .then(() => this.setState({form: initFormState}))
   };
 
   handleFormChange = ({target}) => {
@@ -69,7 +70,7 @@ class Notes extends React.Component {
   handleDeleteNote = id => {
     this.deleteNote(id)
       .then(this.loadNotes)
-      .then(() => this.setState({form: this.initFormState}))
+      .then(() => this.setState({form: initFormState}))
   };
 
   handleRefreshNotes = () => {

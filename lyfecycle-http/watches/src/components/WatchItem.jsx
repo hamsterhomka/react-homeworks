@@ -21,12 +21,13 @@ class WatchItem extends React.Component {
   }
 
   render() {
+    const { time } = this.state;
     const defaultRotateSeconds = 45;
     const defaultRotateHours = 180;
     const defaultRotateMinutes = -90;
-    const rotateSeconds = this.state.time.seconds() * 360 / 60 + defaultRotateSeconds;
-    const rotateMinutes = this.state.time.minutes() * 360 / 60 + defaultRotateMinutes;
-    const rotateHours = (this.state.time.format('h') * 360 + (this.state.time.minutes() * 360 / 60)) / 12 + defaultRotateHours;
+    const rotateSeconds = time.seconds() * 360 / 60 + defaultRotateSeconds;
+    const rotateMinutes = time.minutes() * 360 / 60 + defaultRotateMinutes;
+    const rotateHours = (time.format('h') * 360 + (time.minutes() * 360 / 60)) / 12 + defaultRotateHours;
 
     return (
       <div className="watch-item">

@@ -16,9 +16,10 @@ function msToDays(ms) {
   return msToHours(ms) / 24;
 }
 
-export function prettified(Component) {
-  return class extends React.Component {
-    prettifyDate(date) {
+export function prettyTime(Component) {
+  class PrettyTime extends React.Component {
+    prettifyDate = () => {
+      const { date } = this.props;
       const timeDiff = new Date() - new Date(date);
       let prettifiedDate = '';
 
@@ -34,12 +35,12 @@ export function prettified(Component) {
       }
 
       return prettifiedDate;
-    }
+    };
 
     render() {
-      const {date} = this.props;
-
-      return <Component {...this.props} date={this.prettifyDate(date)}/>
+      return <Component {...this.props} date={this.prettifyDate()}/>
     }
   }
+  PrettyTime.displayName = `prettyTime(${Component.displayName || Component.name}`;
+  return PrettyTime;
 }

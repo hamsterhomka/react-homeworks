@@ -6,7 +6,7 @@ export function withWrap(Component) {
   const NEW_VIEWS_COUNT = 100,
     POPULAR_VIEWS_COUNT = 1000;
 
-  return class extends React.Component {
+  class WithWrap extends React.Component {
     render() {
       const {views} = this.props,
         componentWithProps = <Component {...this.props}/>;
@@ -28,4 +28,6 @@ export function withWrap(Component) {
       }
     }
   }
+  WithWrap.displayName = `withWrap(${Component.displayName || Component.name}`;
+  return WithWrap;
 }

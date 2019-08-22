@@ -1,7 +1,7 @@
 import React from 'react';
 import Video from './Video';
 import Article from './Article';
-import {withWrap} from '../hoc';
+import {withWrap} from '../hoc/withWrap';
 
 const WrappedVideo = withWrap(Video);
 const WrappedArticle = withWrap(Article);

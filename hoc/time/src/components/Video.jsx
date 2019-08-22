@@ -1,8 +1,8 @@
 import React from 'react';
 import DateTime from './DateTime';
-import {prettified} from '../hoc';
+import {prettyTime} from '../hoc/prettyTime';
 
-const DateTimePretty = prettified(DateTime);
+const DateTimePretty = prettyTime(DateTime);
 
 function Video(props) {
   return (

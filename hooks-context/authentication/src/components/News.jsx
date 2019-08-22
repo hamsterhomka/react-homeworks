@@ -3,7 +3,7 @@ import AuthContext from '../contexts/AuthContext';
 
 function News() {
   const [news, setNews] = useState([]);
-  const {token, handleLogout} = useContext(AuthContext);
+  const {token, handleLogout, setError} = useContext(AuthContext);
 
   useEffect(() => {
     fetch(process.env.REACT_APP_NEWS_URL, {
@@ -26,8 +26,9 @@ function News() {
       .catch(error => {
         if(error.message === '401')
         handleLogout();
+        setError('Ошибка авторизации')
       });
-  }, [token, handleLogout]);
+  }, [token, handleLogout, setError]);
 
 
   return (
