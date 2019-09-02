@@ -1,7 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {Redirect} from 'react-router-dom';
 import PostsContext from '../contexts/PostsContext';
-import PropTypes from 'prop-types';
 
 function NewPostForm({history}) {
   const {handleAddPost} = useContext(PostsContext);
@@ -39,7 +37,5 @@ function NewPostForm({history}) {
     </form>
   );
 }
-
-NewPostForm.propTypes = {};
 
 export default NewPostForm;

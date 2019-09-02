@@ -1,10 +1,9 @@
-import React,{useContext} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import PostsList from './PostsList';
-import PropTypes from 'prop-types';
 import useFetch from '../hooks/useFetch';
 
-function Posts(props) {
+function Posts() {
   const [posts] = useFetch(process.env.REACT_APP_POSTS_URL);
 
   return (
@@ -16,7 +15,5 @@ function Posts(props) {
     </div>
   );
 }
-
-Posts.propTypes = {};
 
 export default Posts;

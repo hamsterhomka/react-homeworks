@@ -1,5 +1,4 @@
 import React, {useContext, useState} from 'react';
-import PropTypes from 'prop-types';
 import PostsContext from '../contexts/PostsContext';
 import useFetch from "../hooks/useFetch";
 
@@ -47,9 +46,7 @@ function PostView({match, history}) {
           <textarea
             className="post-edit-view__textarea uk-textarea"
             name="content"
-            onChange={handleFormChange}>
-            {post.content}
-          </textarea>
+            onChange={handleFormChange} value={post.content} />
           <div className="post-edit-view-controls">
             <button
               className="uk-button uk-button-primary uk-button-small uk-margin-small-top">
@@ -63,7 +60,5 @@ function PostView({match, history}) {
     return null;
   }
 }
-
-PostView.propTypes = {};
 
 export default PostView;

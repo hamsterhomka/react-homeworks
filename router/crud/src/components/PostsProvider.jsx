@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import PostsContext from '../contexts/PostsContext';
 
 function PostsProvider(props) {
@@ -38,7 +37,5 @@ function PostsProvider(props) {
     </PostsContext.Provider>
   );
 }
-
-PostsProvider.propTypes = {};
 
 export default PostsProvider;

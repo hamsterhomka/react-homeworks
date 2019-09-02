@@ -16,6 +16,8 @@ function PostsList({posts}) {
   );
 }
 
-PostsList.propTypes = {};
+PostsList.propTypes = {
+  posts: PropTypes.array.isRequired,
+};
 
 export default PostsList;

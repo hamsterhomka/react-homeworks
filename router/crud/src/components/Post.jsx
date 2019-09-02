@@ -14,6 +14,12 @@ function Post({post}) {
   );
 }
 
-Post.propTypes = {};
+Post.propTypes = {
+  post: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    content: PropTypes.string.isRequired,
+    created: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default Post;

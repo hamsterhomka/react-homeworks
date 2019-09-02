@@ -11,6 +11,7 @@ const WalksRegisterer = (props) => {
     date: '',
     distance: '',
     editId: null
+    editId: null
   };
   const [walks, setWalks] = useState([]),
     [walkAddForm, setWalkAddForm] = useState(initialWalkAddFormState);
